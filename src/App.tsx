@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { lazy } from 'react'
+import { Provider } from 'react-redux'
+import { ThemeProvider } from 'providers/ThemeProvider'
+import { QueryProvider } from 'providers/QueryProvider'
+import { NotistackProvider } from 'providers/NotistackProvider'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Router from 'Router'
+import store from 'store'
+
+const Login = lazy(() => import('pages/Auth/Login'))
+const SignOut = lazy(() => import('pages/Auth/SignOut'))
+
+export const router = createBrowserRouter([
+  {
+    path: '*',
+    element: <Router />,
+  },
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/sign-out',
+    element: <SignOut />,
+  },
+])
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider store={store}>
+      <QueryProvider>
+        <ThemeProvider>
+          <NotistackProvider>
+            <RouterProvider router={router} />
+          </NotistackProvider>
+        </ThemeProvider>
+      </QueryProvider>
+    </Provider>
+  )
 }
 
-export default App;
+export default App
