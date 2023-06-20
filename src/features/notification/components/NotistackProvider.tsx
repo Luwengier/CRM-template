@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { SnackbarProvider } from 'notistack'
-import { NotifyAlert } from 'components/Alert'
+import { NotifyAlert } from 'features/notification/components/Alert'
 
 // Type
 interface Props {
@@ -25,7 +25,7 @@ declare module 'notistack' {
 }
 
 // Provider
-export const NotistackProvider = ({ children }: Props) => {
+const NotistackProvider = ({ children }: Props) => {
   return (
     <SnackbarProvider
       maxSnack={5}
@@ -44,3 +44,5 @@ export const NotistackProvider = ({ children }: Props) => {
     </SnackbarProvider>
   )
 }
+
+export default NotistackProvider
