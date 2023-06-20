@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'providers/ThemeProvider'
-import { QueryProvider } from 'providers/QueryProvider'
+import SWRProvider from 'features/swr/SWRProvider'
 import NotistackProvider from 'features/notification/components/NotistackProvider'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Router from 'Router'
@@ -28,13 +28,13 @@ export const router = createBrowserRouter([
 function App() {
   return (
     <Provider store={store}>
-      <QueryProvider>
-        <ThemeProvider>
+      <ThemeProvider>
+        <SWRProvider>
           <NotistackProvider>
             <RouterProvider router={router} />
           </NotistackProvider>
-        </ThemeProvider>
-      </QueryProvider>
+        </SWRProvider>
+      </ThemeProvider>
     </Provider>
   )
 }

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { enqueueError } from '../features/notification/utils'
+import { enqueueError } from '../notification/utils'
 
 export const swrFetcher = async (
   ...args: [string | [string, Record<string, string> | undefined]]

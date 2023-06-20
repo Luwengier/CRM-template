@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { SWRConfig } from 'swr'
-import { swrFetcher } from 'utils/fetcher'
+import { swrFetcher } from './utils'
 
 // Type
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 }
 
 // Provider
-export const QueryProvider = ({ children }: Props) => {
+export const SWRProvider = ({ children }: Props) => {
   return (
     <SWRConfig
       value={{
@@ -20,3 +20,5 @@ export const QueryProvider = ({ children }: Props) => {
     </SWRConfig>
   )
 }
+
+export default SWRProvider
