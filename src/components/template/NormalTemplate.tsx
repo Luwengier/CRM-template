@@ -3,7 +3,7 @@ import { useTheme, alpha } from '@mui/material'
 
 import Box from '@mui/material/Box'
 import Skeleton from '@mui/material/Skeleton'
-import NotistackProvider from 'features/notification/components/NotistackProvider'
+import NotistackProvider from 'features/notification/NotistackProvider'
 
 const NavBar = lazy(() => import('components/NavBar'))
 

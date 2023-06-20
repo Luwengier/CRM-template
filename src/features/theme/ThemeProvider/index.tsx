@@ -3,7 +3,7 @@ import { useState, useMemo, ReactNode } from 'react'
 import { CssBaseline } from '@mui/material'
 import { grey, amber, teal } from '@mui/material/colors'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import ColorModeContext from 'contexts/ColorModeContext'
+import ColorModeContext from '../ColorModeContext'
 import buttonMixin from './button-mixin'
 
 import {
@@ -16,7 +16,7 @@ import {
   ThemeProvider as MuiThemeProvider,
 } from '@mui/material/styles'
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
+const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [mode, setMode] = useState<'light' | 'dark'>(
     useMediaQuery('(prefers-color-scheme: dark)') ? 'dark' : 'light'
   )
@@ -360,3 +360,5 @@ const getTypographyOptions = (palette: Palette): TypographyVariantsOptions => ({
     color: palette.gray[42],
   },
 })
+
+export default ThemeProvider

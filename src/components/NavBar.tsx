@@ -15,7 +15,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
 
 import MenuButton from './MenuButton'
-import ColorModeContext from 'contexts/ColorModeContext'
+import ColorModeContext from 'features/theme/ColorModeContext'
 
 const SideBar = lazy(() => import('./SideBar'))
 
