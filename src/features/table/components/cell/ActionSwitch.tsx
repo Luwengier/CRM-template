@@ -5,12 +5,12 @@ import Switch from '@mui/material/Switch'
 import Tooltip from '@mui/material/Tooltip'
 
 import { GridRowParams } from '@mui/x-data-grid'
-import { GridRowModel, FullColDef } from 'types/gridCol'
+import { GridRowModel, FullColDef } from 'features/table/type'
 
 const ActionSwitch = ({
   col,
   params,
-  action
+  action,
 }: {
   col: FullColDef
   params: GridRowParams<GridRowModel>
@@ -44,18 +44,18 @@ const StyledSwitch = styled(Switch)(({ theme }) => ({
     backgroundColor: theme.palette.gray.ff,
     borderRadius: 22 / 2,
     border: `1px solid ${theme.palette.gray[61]}`,
-    opacity: 1
+    opacity: 1,
   },
   '& .MuiSwitch-thumb': {
     backgroundColor: theme.palette.gray[61],
     boxShadow: 'none',
     width: 12,
     height: 12,
-    margin: 4
+    margin: 4,
   },
   '& .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb': {
-    backgroundColor: theme.palette.gray.ff
-  }
+    backgroundColor: theme.palette.gray.ff,
+  },
 }))
 
 export default ActionSwitch

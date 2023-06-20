@@ -10,13 +10,13 @@ import {
 } from 'react'
 import { keyBy, difference, unzip, zip } from 'lodash-es'
 import { useTheme, styled, alpha } from '@mui/material/styles'
-import TablePagination from '@mui/material/TablePagination'
-import SearchPopover from './popover/SearchPopover'
-import FilterPopover from './popover/FilterPopover'
+import { getProcessCols, orderOptions } from './utils'
 
-import { ParamsObj } from 'types/gridCol'
-import { getProcessCols, orderOptions } from 'utils/table'
-import { GridRowModel, FullColDef, GridColList } from 'types/gridCol'
+import TablePagination from '@mui/material/TablePagination'
+import SearchPopover from './components/popover/SearchPopover'
+import FilterPopover from './components/popover/FilterPopover'
+
+import { GridRowModel, FullColDef, GridColList, ParamsObj } from './type'
 import {
   DataGrid,
   DataGridProps,

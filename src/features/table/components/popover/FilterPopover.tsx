@@ -6,16 +6,14 @@ import {
   Dispatch,
   SetStateAction,
 } from 'react'
-import {
-  Checkbox,
-  FormControl,
-  FormControlLabel,
-  FormGroup,
-  Popover,
-  PopoverProps,
-} from '@mui/material'
 import { omit } from 'lodash-es'
-import { FullColDef, FilterOption, ParamsObj } from 'types/gridCol'
+import { FullColDef, FilterOption, ParamsObj } from 'features/table/type'
+
+import Checkbox from '@mui/material/Checkbox'
+import FormControl from '@mui/material/FormControl'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import FormGroup from '@mui/material/FormGroup'
+import Popover, { PopoverProps } from '@mui/material/Popover'
 
 interface SearchProps extends Omit<PopoverProps, 'open'> {
   col: FullColDef

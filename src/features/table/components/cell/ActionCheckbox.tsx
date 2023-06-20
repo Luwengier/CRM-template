@@ -5,24 +5,24 @@ import Checkbox from '@mui/material/Checkbox'
 import FormGroup from '@mui/material/FormGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import { GridRowParams } from '@mui/x-data-grid'
-import { FullColDef, GridRowModel } from 'types/gridCol'
+import { FullColDef, GridRowModel } from 'features/table/type'
 
 const StyledFormGroup = styled(FormGroup)(({ theme }) => ({
   flexWrap: 'nowrap',
   '.MuiFormControlLabel-root .MuiTypography-root.MuiFormControlLabel-label': {
     ...theme.typography.body2,
-    color: theme.palette.gray[42]
+    color: theme.palette.gray[42],
   },
   '.Mui-disabled .Mui-checked .MuiSvgIcon-root': {
-    color: alpha(theme.palette.primary.main, 0.4)
-  }
+    color: alpha(theme.palette.primary.main, 0.4),
+  },
 }))
 
 const ActionCheckbox = ({
   col,
   params,
   type,
-  action
+  action,
 }: {
   col: FullColDef
   params: GridRowParams<GridRowModel>

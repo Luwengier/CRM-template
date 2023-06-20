@@ -1,16 +1,16 @@
 import { ChangeEvent, Dispatch, MouseEvent, SetStateAction } from 'react'
 
 import Typography from '@mui/material/Typography'
-import IconButtonPanel from 'components/cell/IconButtonPanel'
-import CellActionPanel from 'components/cell/_CellActionPanel'
-import CellTypePanel from 'components/cell/_CellTypePanel'
+import IconButtonPanel from './components/cell/IconButtonPanel'
+import CellActionPanel from './components/cell/_CellActionPanel'
+import CellTypePanel from './components/cell/_CellTypePanel'
 
 import {
   GridRowParams,
   GridRenderCellParams,
   GridColumnHeaderParams,
 } from '@mui/x-data-grid'
-import { GridColList, GridRowModel, FullColDef } from 'types/gridCol'
+import { GridColList, GridRowModel, FullColDef } from './type'
 
 export const orderOptions = ['desc', 'asc']
 

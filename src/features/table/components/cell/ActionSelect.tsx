@@ -2,13 +2,13 @@ import React from 'react'
 import MenuItem from '@mui/material/MenuItem'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
 
-import { Option } from 'types/gridCol'
+import { Option } from 'features/table/type'
 import { GridRowParams } from '@mui/x-data-grid'
-import { FullColDef, GridRowModel } from 'types/gridCol'
+import { FullColDef, GridRowModel } from 'features/table/type'
 
 const ActionSelect = ({
   col,
-  params
+  params,
 }: {
   col: FullColDef
   params: GridRowParams<GridRowModel>

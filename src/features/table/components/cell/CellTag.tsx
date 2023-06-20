@@ -1,12 +1,12 @@
 import React from 'react'
 import { GridRenderCellParams } from '@mui/x-data-grid'
-import { FullColDef, GridRowModel } from 'types/gridCol'
+import { FullColDef, GridRowModel } from 'features/table/type'
 
 import { TAG_MAPPING } from 'constants/tagMapping'
 
 const CellTag = ({
   col,
-  params
+  params,
 }: {
   col: FullColDef
   params: GridRenderCellParams<GridRowModel>
@@ -23,7 +23,7 @@ const CellTag = ({
   }
   return TAG_MAPPING[params.value || params.value.type || 'none']({
     label: params.value.name,
-    title: params.value.name
+    title: params.value.name,
   })
 }
 

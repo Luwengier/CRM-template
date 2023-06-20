@@ -3,7 +3,7 @@ import React from 'react'
 import TerminalIcon from '@mui/icons-material/Terminal'
 
 import { GridActionsCellItem, GridRowParams } from '@mui/x-data-grid'
-import { GridRowModel, FullColDef } from 'types/gridCol'
+import { GridRowModel, FullColDef } from 'features/table/type'
 
 const ActionScript = ({
   col,

@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import Tag from 'components/Tag'
+import Tag from 'features/table/components/Tag'
 import { ChipProps } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check'
 import CloseIcon from '@mui/icons-material/Close'

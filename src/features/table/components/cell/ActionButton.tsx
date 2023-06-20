@@ -3,7 +3,7 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 
 import { GridRowParams } from '@mui/x-data-grid'
-import { GridRowModel, FullColDef } from 'types/gridCol'
+import { GridRowModel, FullColDef } from 'features/table/type'
 import { styled } from '@mui/material'
 
 const UnstyledActionButton = ({
@@ -38,8 +38,8 @@ const UnstyledActionButton = ({
 
 const ActionButton = styled(UnstyledActionButton)(({ theme }) => ({
   '&.MuiButtonBase-root': {
-    marginLeft: theme.spacing(-1.5)
-  }
+    marginLeft: theme.spacing(-1.5),
+  },
 }))
 
 export default ActionButton

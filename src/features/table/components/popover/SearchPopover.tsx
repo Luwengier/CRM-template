@@ -5,13 +5,13 @@ import {
   SetStateAction,
   KeyboardEvent,
 } from 'react'
-import Popover, { PopoverProps } from '@mui/material/Popover'
+import { omit } from 'lodash-es'
+import { styled } from '@mui/material'
+import { FullColDef, ParamsObj } from 'features/table/type'
+
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
-import { FullColDef, ParamsObj } from 'types/gridCol'
-import { styled } from '@mui/material'
-import { omit } from 'lodash-es'
-// import { omit } from 'lodash-es'
+import Popover, { PopoverProps } from '@mui/material/Popover'
 
 interface SearchProps extends Omit<PopoverProps, 'open'> {
   col: FullColDef | null

@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { GridRenderCellParams } from '@mui/x-data-grid'
-import { FullColDef, GridRowModel } from 'types/gridCol'
+import { FullColDef, GridRowModel } from 'features/table/type'
 
 const CellLink = ({
   col,
-  params
+  params,
 }: {
   col: FullColDef
   params: GridRenderCellParams<GridRowModel>

@@ -1,5 +1,5 @@
 import { useState, MouseEvent, ChangeEvent } from 'react'
-import { ParamsObj } from 'types/gridCol'
+import { ParamsObj } from 'features/table/type'
 import { GridColumnVisibilityModel } from '@mui/x-data-grid'
 
 const useTableState = () => {

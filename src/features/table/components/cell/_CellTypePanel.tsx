@@ -2,17 +2,31 @@ import { lazy, Suspense, FC } from 'react'
 
 import Skeleton from '@mui/material/Skeleton'
 import { GridRenderCellParams } from '@mui/x-data-grid'
-import { FullColDef, GridRowModel } from 'types/gridCol'
+import { FullColDef, GridRowModel } from 'features/table/type'
 
-const CellTag = lazy(() => import('components/cell/CellTag'))
-const CellSignal = lazy(() => import('components/cell/CellSignal'))
-const CellLink = lazy(() => import('components/cell/CellLink'))
-const CellObject = lazy(() => import('components/cell/CellObject'))
-const CellBoolean = lazy(() => import('components/cell/CellBoolean'))
-const CellDateTime = lazy(() => import('components/cell/CellDateTime'))
-const CellMapping = lazy(() => import('components/cell/CellMapping'))
-const CellSchedules = lazy(() => import('components/cell/CellSchedules'))
-const CellEndAdornment = lazy(() => import('components/cell/CellEndAdornment'))
+const CellTag = lazy(() => import('features/table/components/cell/CellTag'))
+const CellSignal = lazy(
+  () => import('features/table/components/cell/CellSignal')
+)
+const CellLink = lazy(() => import('features/table/components/cell/CellLink'))
+const CellObject = lazy(
+  () => import('features/table/components/cell/CellObject')
+)
+const CellBoolean = lazy(
+  () => import('features/table/components/cell/CellBoolean')
+)
+const CellDateTime = lazy(
+  () => import('features/table/components/cell/CellDateTime')
+)
+const CellMapping = lazy(
+  () => import('features/table/components/cell/CellMapping')
+)
+const CellSchedules = lazy(
+  () => import('features/table/components/cell/CellSchedules')
+)
+const CellEndAdornment = lazy(
+  () => import('features/table/components/cell/CellEndAdornment')
+)
 const NullComponent = () => null
 
 const CELL_MAPPING: {

@@ -1,7 +1,7 @@
 import React from 'react'
-import { numberWithCommas } from 'utils/table'
+import { numberWithCommas } from 'features/table/utils'
 import { GridRowParams } from '@mui/x-data-grid'
-import { FullColDef, GridRowModel } from 'types/gridCol'
+import { FullColDef, GridRowModel } from 'features/table/type'
 
 export const ActionInputText = ({
   col,

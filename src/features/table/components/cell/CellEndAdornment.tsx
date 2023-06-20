@@ -1,11 +1,11 @@
 import React from 'react'
 
 import { GridRenderCellParams } from '@mui/x-data-grid'
-import { FullColDef, GridRowModel } from 'types/gridCol'
+import { FullColDef, GridRowModel } from 'features/table/type'
 
 const CellEndAdornment = ({
   col,
-  params
+  params,
 }: {
   col: FullColDef
   params: GridRenderCellParams<GridRowModel>

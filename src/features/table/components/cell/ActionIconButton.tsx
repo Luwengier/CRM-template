@@ -2,7 +2,7 @@ import React from 'react'
 import IconButton from '@mui/material/IconButton'
 
 import { GridRowParams } from '@mui/x-data-grid'
-import { GridRowModel, FullColDef } from 'types/gridCol'
+import { GridRowModel, FullColDef } from 'features/table/type'
 import { styled } from '@mui/material'
 
 const UnstyledActionIconButton = ({
@@ -30,8 +30,8 @@ const UnstyledActionIconButton = ({
 
 const ActionIconButton = styled(UnstyledActionIconButton)(({ theme }) => ({
   '.MuiDataGrid-actionsCell': {
-    justifyContent: 'center'
-  }
+    justifyContent: 'center',
+  },
 }))
 
 export default ActionIconButton

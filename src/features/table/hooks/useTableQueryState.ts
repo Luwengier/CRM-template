@@ -10,7 +10,7 @@ import {
 } from 'react'
 import qs from 'qs'
 import { omit } from 'lodash-es'
-import { ParamsObj } from 'types/gridCol'
+import { ParamsObj } from 'features/table/type'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { GridColumnVisibilityModel } from '@mui/x-data-grid'
 

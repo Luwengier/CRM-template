@@ -1,12 +1,12 @@
 import React from 'react'
 import { GridRenderCellParams } from '@mui/x-data-grid'
-import { FullColDef, GridRowModel } from 'types/gridCol'
+import { FullColDef, GridRowModel } from 'features/table/type'
 
 import { SIGNAL_MAPPING } from 'constants/signalMapping'
 
 const CellSignal = ({
   col,
-  params
+  params,
 }: {
   col: FullColDef
   params: GridRenderCellParams<GridRowModel>

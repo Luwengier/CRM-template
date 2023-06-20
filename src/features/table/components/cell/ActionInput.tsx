@@ -2,7 +2,7 @@ import React, { ChangeEvent, useCallback } from 'react'
 import OutlinedInput, { OutlinedInputProps } from '@mui/material/OutlinedInput'
 
 import { GridRowParams } from '@mui/x-data-grid'
-import { FullColDef, GridRowModel } from 'types/gridCol'
+import { FullColDef, GridRowModel } from 'features/table/type'
 
 interface Props extends OutlinedInputProps {
   col: FullColDef

@@ -4,20 +4,34 @@ import Skeleton from '@mui/material/Skeleton'
 import { ActionSelectText, ActionInputText } from './ActionText'
 
 import { GridRowParams } from '@mui/x-data-grid'
-import { GridRowModel, FullColDef } from 'types/gridCol'
+import { GridRowModel, FullColDef } from 'features/table/type'
 
-const ActionScript = lazy(() => import('components/cell/ActionScript'))
-const ActionButton = lazy(() => import('components/cell/ActionButton'))
-const ActionSwitch = lazy(() => import('components/cell/ActionSwitch'))
-const ActionCheckbox = lazy(() => import('components/cell/ActionCheckbox'))
-const ActionInput = lazy(() => import('components/cell/ActionInput'))
-const ActionSelect = lazy(() => import('components/cell/ActionSelect'))
-const ActionIconButton = lazy(() => import('components/cell/ActionIconButton'))
+const ActionScript = lazy(
+  () => import('features/table/components/cell/ActionScript')
+)
+const ActionButton = lazy(
+  () => import('features/table/components/cell/ActionButton')
+)
+const ActionSwitch = lazy(
+  () => import('features/table/components/cell/ActionSwitch')
+)
+const ActionCheckbox = lazy(
+  () => import('features/table/components/cell/ActionCheckbox')
+)
+const ActionInput = lazy(
+  () => import('features/table/components/cell/ActionInput')
+)
+const ActionSelect = lazy(
+  () => import('features/table/components/cell/ActionSelect')
+)
+const ActionIconButton = lazy(
+  () => import('features/table/components/cell/ActionIconButton')
+)
 
 const CellActionPanel = ({
   col,
   params,
-  action
+  action,
 }: {
   col: FullColDef
   params: GridRowParams<GridRowModel>

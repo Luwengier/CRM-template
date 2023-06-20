@@ -1,5 +1,5 @@
 import { FC, MouseEvent, useEffect, useState } from 'react'
-import { FullColDef } from 'types/gridCol'
+import { FullColDef } from 'features/table/type'
 import SouthIcon from '@mui/icons-material/South'
 import NorthIcon from '@mui/icons-material/North'
 import IconButton from '@mui/material/IconButton'
