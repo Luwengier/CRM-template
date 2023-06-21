@@ -2,7 +2,10 @@ import { memo } from 'react'
 import { styled } from '@mui/material/styles'
 import { lowerCase } from 'lodash-es'
 import { FormikProps } from 'formik'
-import TextField, { TextFieldProps } from '@mui/material/TextField'
+import TextField, {
+  TextFieldProps,
+  TextFieldVariants,
+} from '@mui/material/TextField'
 
 // Type
 interface Values {
@@ -10,7 +13,8 @@ interface Values {
 }
 
 interface FormikTextFieldProps<T extends Values>
-  extends Omit<TextFieldProps<'outlined'>, 'variant'> {
+  extends Omit<TextFieldProps, 'variant'> {
+  variant?: TextFieldVariants
   formik: FormikProps<T>
   name: string
 }
@@ -27,7 +31,6 @@ function UnstyledFormikTextField<T extends Values = Values>({
       name={name}
       label={label}
       id={`${name}-input`}
-      variant="outlined"
       aria-describedby={`${name}-input-helper-text`}
       helperText={formik.touched[name] && (formik.errors[name] as string)}
       value={
