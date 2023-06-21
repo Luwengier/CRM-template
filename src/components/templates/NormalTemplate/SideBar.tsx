@@ -1,14 +1,15 @@
-import React, { FC, memo } from 'react'
+import { FC, memo } from 'react'
+import { CSSObject, Theme, alpha, useTheme } from '@mui/material'
+import { routeConfig } from 'Router'
+
 import Box from '@mui/material/Box'
 import Drawer, { DrawerProps } from '@mui/material/Drawer'
 import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
-import { CSSObject, Theme, alpha, useTheme } from '@mui/material'
-import { routeConfig } from 'configs/route'
+import MenuList from './MenuList'
 
 import CloseIcon from '@mui/icons-material/Close'
-import MenuList from './MenuList'
 
 interface SideBarProps extends DrawerProps {
   open: boolean

@@ -8,7 +8,7 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
 import ListItemButton from '@mui/material/ListItemButton'
 
-import { RouteItem } from 'configs/route'
+import { RouteItem } from 'Router'
 
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp'
 

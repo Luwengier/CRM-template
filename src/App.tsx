@@ -1,13 +1,13 @@
 import { lazy } from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import store from 'store'
 
+import Router from 'Router'
 import { Provider } from 'react-redux'
 import SWRProvider from 'features/swr/SWRProvider'
 import AuthProvider from 'features/auth/AuthContext'
 import ThemeProvider from 'features/theme/ThemeProvider'
 import NotistackProvider from 'features/notification/NotistackProvider'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Router from 'Router'
-import store from 'store'
 
 const Login = lazy(() => import('features/auth/Login'))
 const SignOut = lazy(() => import('features/auth/SignOut'))
