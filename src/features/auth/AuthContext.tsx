@@ -1,5 +1,6 @@
 import { useState, useCallback, createContext, useMemo, ReactNode } from 'react'
 import axios from 'axios'
+import './config'
 
 const initialValue: ContextType = {
   token: '',
@@ -11,25 +12,9 @@ const initialValue: ContextType = {
   reset: () => {},
 }
 
-export type UserType = {
-  id: string | number
-  role: string
-  companyId: string | number
-}
-
-type ContextType = {
-  token: string
-  role: string
-  user: UserType | null
-  setToken: (token: string) => void
-  setRole: (role: string) => void
-  setUser: (user: UserType | null) => void
-  reset: () => void
-}
-
 export const AuthContext = createContext<ContextType>(initialValue)
 
-export const AuthProvider = ({ children }: { children: ReactNode }) => {
+const AuthProvider = ({ children }: { children: ReactNode }) => {
   const initialToken: string = localStorage.getItem('token') || ''
   const initialUser: UserType | null =
     JSON.parse(localStorage.getItem('user') || 'null') || null
@@ -78,3 +63,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
+
+export type UserType = {
+  id: string | number
+  role: string
+  companyId: string | number
+}
+
+type ContextType = {
+  token: string
+  role: string
+  user: UserType | null
+  setToken: (token: string) => void
+  setRole: (role: string) => void
+  setUser: (user: UserType | null) => void
+  reset: () => void
+}
+
+export default AuthProvider

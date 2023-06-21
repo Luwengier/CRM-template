@@ -1,14 +1,16 @@
 import { lazy } from 'react'
+
 import { Provider } from 'react-redux'
 import SWRProvider from 'features/swr/SWRProvider'
+import AuthProvider from 'features/auth/AuthContext'
 import ThemeProvider from 'features/theme/ThemeProvider'
 import NotistackProvider from 'features/notification/NotistackProvider'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Router from 'Router'
 import store from 'store'
 
-const Login = lazy(() => import('pages/Auth/Login'))
-const SignOut = lazy(() => import('pages/Auth/SignOut'))
+const Login = lazy(() => import('features/auth/Login'))
+const SignOut = lazy(() => import('features/auth/SignOut'))
 
 export const router = createBrowserRouter([
   {
@@ -27,15 +29,17 @@ export const router = createBrowserRouter([
 
 function App() {
   return (
-    <Provider store={store}>
-      <ThemeProvider>
+    <AuthProvider>
+      <Provider store={store}>
         <SWRProvider>
-          <NotistackProvider>
-            <RouterProvider router={router} />
-          </NotistackProvider>
+          <ThemeProvider>
+            <NotistackProvider>
+              <RouterProvider router={router} />
+            </NotistackProvider>
+          </ThemeProvider>
         </SWRProvider>
-      </ThemeProvider>
-    </Provider>
+      </Provider>
+    </AuthProvider>
   )
 }
 
