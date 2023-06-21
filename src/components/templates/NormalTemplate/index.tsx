@@ -5,7 +5,7 @@ import Box from '@mui/material/Box'
 import Skeleton from '@mui/material/Skeleton'
 import NotistackProvider from 'features/notification/NotistackProvider'
 
-const NavBar = lazy(() => import('components/NavBar'))
+const NavBar = lazy(() => import('components/templates/NormalTemplate/NavBar'))
 
 const NormalTemplate = ({ children }: { children: ReactNode }) => {
   return (

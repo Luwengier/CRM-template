@@ -1,6 +1,7 @@
 import { useRoutes } from 'react-router-dom'
-import NormalTemplate from 'components/template/NormalTemplate'
 import { routeConfig } from 'configs/route'
+
+import NormalTemplate from 'components/templates/NormalTemplate'
 
 const Router = () => {
   const routes = useRoutes(routeConfig)
