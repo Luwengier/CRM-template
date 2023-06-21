@@ -2,7 +2,7 @@ import React from 'react'
 import { GridRenderCellParams } from '@mui/x-data-grid'
 import { FullColDef, GridRowModel } from 'features/table/type'
 
-import { TAG_MAPPING } from 'constants/tagMapping'
+import { TAG_MAPPING } from 'features/table/constants/tagMapping'
 
 const CellTag = ({
   col,

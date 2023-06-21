@@ -2,7 +2,7 @@ import React from 'react'
 import { GridRenderCellParams } from '@mui/x-data-grid'
 import { FullColDef, GridRowModel } from 'features/table/type'
 
-import { SIGNAL_MAPPING } from 'constants/signalMapping'
+import { SIGNAL_MAPPING } from 'features/table/constants/signalMapping'
 
 const CellSignal = ({
   col,
