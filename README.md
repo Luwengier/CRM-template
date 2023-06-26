@@ -1,46 +1,124 @@
-# Getting Started with Create React App
+## Features
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+### [Formik form](https://formik.org/)
 
-In the project directory, you can run:
+Formik 與各式 MUI input 結合後的組件，該組件的 _Props_ 的必填一定包含：
 
-### `npm start`
+- **formik** - useFormik 回傳的實例。
+- **name** - 與一般 input element 的 name 相同。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+部分有選項的組件，如 Autocomplete、Select 等，會有 options 也為必填：
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **options** - 定義下拉式選單選項的資料陣列。
 
-### `npm test`
+```tsx
+// 用例：
+const formik = useFormik({...})
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<FormikTagAutocomplete
+  name="account"
+  formik={formik}
+  options={[
+    { name: 'option 1', id: '1' },
+    { name: 'option 2', id: '1' }
+  ]}
+/>
+```
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### [SWR](https://swr.vercel.app/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+預設定好 SWR Provider，可於 **SWRConfig** 中設定 _revalidate、refresh_ 與 _retry_ 等配置，可於 **fetcher** 中設定接收到的 params 與預處理 response。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```tsx
+// 用例：
+const { data, isLoading, error } = useSWR('your/api/path')
 
-### `npm run eject`
+// OR //
+const { data, isLoading, error } = useSWR([
+  'your/api/path',
+  { page: 3, limit: 20 },
+])
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### [Notification](https://notistack.com/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Notistack 套件集合 MUI Alert component，並設置好 **enqueueSuccess** 及 **enqueueError** 兩個 utils 可直接使用，也可使用套件原有的 _enqueueSnackbar_ 方法。好樣式的 Alert component 也可單獨在頁面上的當作提示使用。
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```tsx
+// 用例：
+import { enqueueSuccess, enqueueError } from 'utils/notify'
+import { enqueueSnackbar } from 'notistack'
 
-## Learn More
+try {
+  enqueueSuccess('修改成功')
+} catch (error) {
+  enqueueError(error)
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+// OR //
+enqueueSnackbar('一些注意事項', {
+  variant: 'warning',
+})
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+
+### [Table(Data Grid)](https://mui.com/x/react-data-grid/)
+
+```tsx
+// pages/Home/index.tsx
+import {
+  GenericTable,
+  GridColList,
+  GridRowModel,
+  useTableQueryState,
+} from 'features/table'
+
+const Home = () => {
+  const tableProps = useTableQueryState()
+  return (
+    <div>
+      <GenericTable {...tableProps} columns={cols} rowData={rows} />
+    </div>
+  )
+}
+
+const cols: GridColList = [
+  { field: 'id', headerName: '編號', width: 150 },
+  { field: 'district', headerName: '行政區', width: 150, cellType: 'tag' },
+  { field: 'address', headerName: '地址', minWidth: 300, flex: 1 },
+]
+
+const rows: GridRowModel[] = [
+  {
+    id: '1',
+    district: '大安區',
+    address: '台北市大安區復興南路一段390號',
+  },
+  {
+    id: '2',
+    district: '大安區',
+    address: '台北市大安區復興南路一段392號',
+  },
+]
+```
+
+```ts
+// features/table/type.ts
+export interface GridRowModel extends GridValidRowModel {
+  id: string | number
+  district?: CellFormat['tag']
+}
+
+interface CellFormat {
+  //...
+}
+```
+
+---
