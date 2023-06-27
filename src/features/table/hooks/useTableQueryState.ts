@@ -10,7 +10,7 @@ import {
 } from 'react'
 import qs from 'qs'
 import { omit } from 'lodash-es'
-import { ParamsObj } from 'features/table/type'
+import { GridRowModel, ParamsObj } from 'features/table/type'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { GridColumnVisibilityModel } from '@mui/x-data-grid'
 
@@ -51,6 +51,7 @@ const useTableQueryState = () => {
   const [searchParams, setSearchParams] = useState<ParamsObj>(
     processedQueryStringObj as ParamsObj
   )
+  const [selectionRows, setSelectionRows] = useState<GridRowModel[]>([])
   const [columnVisibilityModel, setColumnVisibilityModel] =
     useState<GridColumnVisibilityModel>({})
   const [queryStringDraft, setQueryStringDraft] = useState<string>('')
@@ -116,6 +117,8 @@ const useTableQueryState = () => {
     setPage,
     pageSize,
     setPageSize,
+    selectionRows,
+    setSelectionRows,
     handlePageChange,
     handleRowsPerPageChange,
     columnVisibilityModel,
