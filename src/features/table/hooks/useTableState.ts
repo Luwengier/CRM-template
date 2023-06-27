@@ -1,11 +1,12 @@
 import { useState, MouseEvent, ChangeEvent } from 'react'
-import { ParamsObj } from 'features/table/type'
+import { GridRowModel, ParamsObj } from 'features/table/type'
 import { GridColumnVisibilityModel } from '@mui/x-data-grid'
 
 const useTableState = () => {
   const [page, setPage] = useState(0)
   const [pageSize, setPageSize] = useState(10)
   const [searchParams, setSearchParams] = useState<ParamsObj>({})
+  const [selectionRows, setSelectionRows] = useState<GridRowModel[]>([])
   const [columnVisibilityModel, setColumnVisibilityModel] =
     useState<GridColumnVisibilityModel>({})
 
@@ -30,6 +31,8 @@ const useTableState = () => {
     setPage,
     pageSize,
     setPageSize,
+    selectionRows,
+    setSelectionRows,
     handlePageChange,
     handleRowsPerPageChange,
     columnVisibilityModel,
