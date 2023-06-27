@@ -10,7 +10,7 @@ const Home = () => {
         Home
       </Typography>
 
-      <GenericTable {...tableProps} columns={cols} rowData={rows} />
+      <GenericTable {...tableProps} columns={cols} rows={rows} />
     </Box>
   )
 }
