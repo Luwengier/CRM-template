@@ -26,7 +26,7 @@ import {
 
 // Component
 const Table: FC<TableProps> = ({
-  rowData,
+  rows,
   columns,
   // Selection
   selectionRows,
@@ -49,7 +49,7 @@ const Table: FC<TableProps> = ({
   const theme = useTheme()
   const [anchorEl, setAnchorEl] = useState<null | HTMLButtonElement>(null)
   const [currentCol, setCurrentCol] = useState<null | FullColDef>(null)
-  const paginationRowCount = count || rowData.length || 0
+  const paginationRowCount = count || rows.length || 0
   // const [paginationModel, setPaginationModel] = useState({
   //   pageSize,
   //   page: paginationRowCount <= 0 ? 0 : page!
@@ -148,7 +148,7 @@ const Table: FC<TableProps> = ({
       const newRowIds = difference(newSelectionModel, selectionModel)
       setSelectionRows((prev) => [
         ...prev,
-        ...newRowIds.map((id) => rowDataMapping[id]),
+        ...newRowIds.map((id) => rowsMapping[id]),
       ])
     } else {
       const filteredIds = difference(selectionModel, newSelectionModel)
@@ -159,9 +159,9 @@ const Table: FC<TableProps> = ({
   }
 
   // 表格 checkbox 點擊時，目前分頁每橫列的 id 與 其詳細資料 的對照表
-  const rowDataMapping = useMemo(() => {
-    return keyBy(rowData, 'id')
-  }, [rowData])
+  const rowsMapping = useMemo(() => {
+    return keyBy(rows, 'id')
+  }, [rows])
 
   // 使 selectionModel 與 selectionRows 對應
   const selectionModel = useMemo(() => {
@@ -172,7 +172,7 @@ const Table: FC<TableProps> = ({
     <>
       {/* Table */}
       <StyledDataGrid
-        rows={rowData}
+        rows={rows}
         columns={processCols}
         autoHeight
         hideFooter
@@ -349,7 +349,7 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
 interface TableProps extends Omit<DataGridProps, 'rows' | 'columns'> {
   page?: number
   pageSize?: number
-  rowData: GridRowModel[]
+  rows: GridRowModel[]
   columns: GridColList | null
   searchParams?: ParamsObj
   selectionRows?: GridRowModel[]
