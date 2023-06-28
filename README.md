@@ -46,6 +46,23 @@ const { data, isLoading, error } = useSWR([
 
 ---
 
+### [Theme](https://mui.com/material-ui/customization/theming/)
+
+使用 MUI 的 ThemeProvider，預設定好主題的色彩、字型等，以統一管理樣式並大幅減少開發者需撰寫的樣式程式碼量。並運用其 **Component Style Overrides** 功能，使各組件被客製化的同時，亦維持組件在頁面開箱即用(out-of-the-box)的能力，不需要再額外定義 styled component 還要於頁面中改變引入組件的路徑。
+
+- **`組件 Style Overrides`**
+  在 _features/theme/mixins/component-mixin.ts_ 中照著[官方指示](https://mui.com/material-ui/customization/theme-components/#theme-style-overrides)，覆蓋欲修改組件的預設樣式。
+  \- - -
+
+- `擴增 Palette`
+  在 _features/theme/mixins/palette-mixin.ts_ 中加入新的色盤或色盤選項，並於 _features/theme/mixins/palette-mixin.d.ts_ 中加入該色盤的[型別定義](https://mui.com/material-ui/customization/palette/#typescript)。
+  \- - -
+
+- `擴增 Typography`
+  在 _features/theme/mixins/typography-mixin.ts_ 中加入新的字型，並加入[型別定義](https://mui.com/material-ui/customization/typography/#adding-amp-disabling-variants)。
+
+---
+
 ### [Notification](https://notistack.com/)
 
 Notistack 套件集合 MUI Alert component，並設置好 **enqueueSuccess** 及 **enqueueError** 兩個 utils 可直接使用，也可使用套件原有的 _enqueueSnackbar_ 方法。已上好樣式的 Alert component 也可單獨在頁面上的當作提示使用。
@@ -109,7 +126,7 @@ GenericTable 組件的 _props_ 有兩個必填：
 >      // ...
 >    ]
 >    ```
->    ***
+>    \_
 
 `範例：`
 
@@ -180,3 +197,57 @@ interface CellFormat {
 ```
 
 ---
+
+## Folder Structure
+
+```bash
+├── public
+├── src
+│   ├── features
+│   │   ├── formik
+│   │   ├── table
+│   │   ├── swr
+│   │   ├── theme
+│   │   └── notification
+│   │
+│   ├── pages
+│   │   ├── Page1
+│   │   │   ├── index.tsx
+│   │   │   ├── ComponentForPage1.tsx
+│   │   │   └── image-for-page1.svg
+│   │   ┆
+│   │   └── PageN
+│   │       ├── index.tsx
+│   │       ├── ComponentForPageN.tsx
+│   │       ┆
+│   │       └── DATA_FOR_PAGE_N.json
+│   │
+│   ├── components
+│   │   ├── SharedComponent1.tsx
+│   │   ├── SharedComponentN.tsx
+│   │   ┆
+│   │   └── templates
+│   │       ├── Template1.tsx
+│   │       ┆
+│   │       └── TemplateN.tsx
+│   │
+│   ├── hooks
+│   │   ├── useHook1.ts
+│   │   └── useHookN.ts
+│   │
+│   ├── utils
+│   ├── slices
+│   │   ├── todoSlice.ts
+│   │   └── otherSlice.ts
+│   ┆
+│   ├── store.ts
+│   ├── App.tsx
+│   ├── index.tsx
+│   ├── react-app-env.d.ts
+│   ├── setupTests.ts
+│   └── types.d.ts
+┆
+├── .env.development.local
+├── tsconfig.json
+└── package.json
+```
