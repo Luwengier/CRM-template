@@ -1,7 +1,5 @@
 ## Features
 
----
-
 ### [Formik form](https://formik.org/)
 
 Formik 與各式 MUI input 結合後的組件，該組件 _props_ 的必填一定包含：
@@ -200,54 +198,55 @@ interface CellFormat {
 
 ## Folder Structure
 
-```bash
+```
 ├── public
 ├── src
-│   ├── features
+│   ├── features // 功能資料夾，資料夾內可放置該功能的專用的檔案，
+│   │   │        // 詳見 Features 章節介紹
 │   │   ├── formik
 │   │   ├── table
 │   │   ├── swr
 │   │   ├── theme
 │   │   └── notification
 │   │
-│   ├── pages
+│   ├── pages // 每個頁面都是一個資料夾，資料夾內可放置該頁面的專用的
+│   │   │     // 組件、圖片、hooks、工具函式、資料或子頁面資料夾等
 │   │   ├── Page1
 │   │   │   ├── index.tsx
 │   │   │   ├── ComponentForPage1.tsx
-│   │   │   └── image-for-page1.svg
+│   │   │   ├── image-for-page1.svg
+│   │   │   └── SubPage
+│   │   │       ├── index.tsx
+│   │   │       └── subPageHook.ts
 │   │   ┆
 │   │   └── PageN
 │   │       ├── index.tsx
 │   │       ├── ComponentForPageN.tsx
-│   │       ┆
 │   │       └── DATA_FOR_PAGE_N.json
 │   │
-│   ├── components
+│   ├── components // 共用組件
 │   │   ├── SharedComponent1.tsx
 │   │   ├── SharedComponentN.tsx
 │   │   ┆
-│   │   └── templates
+│   │   └── templates // 共用頁面外框
 │   │       ├── Template1.tsx
-│   │       ┆
 │   │       └── TemplateN.tsx
 │   │
-│   ├── hooks
+│   ├── hooks // 自定義 hooks
 │   │   ├── useHook1.ts
 │   │   └── useHookN.ts
 │   │
-│   ├── utils
-│   ├── slices
+│   ├── utils // 共用工具函式
+│   ├── slices // Redux Toolkit 的 slice
 │   │   ├── todoSlice.ts
 │   │   └── otherSlice.ts
 │   ┆
-│   ├── store.ts
+│   ├── store.ts // Redux 的 store
 │   ├── App.tsx
-│   ├── index.tsx
-│   ├── react-app-env.d.ts
-│   ├── setupTests.ts
-│   └── types.d.ts
+│   ├── Router.tsx // Router 組件與頁面路由設定
+│   └── index.tsx
 ┆
-├── .env.development.local
+├── .env.development.local // 開發環境的環境變數
 ├── tsconfig.json
 └── package.json
 ```
