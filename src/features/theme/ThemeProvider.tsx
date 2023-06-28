@@ -1,4 +1,3 @@
-/// <reference path="ThemeProvider.d.ts"/>
 import { useState, useMemo, ReactNode } from 'react'
 import { CssBaseline } from '@mui/material'
 import useMediaQuery from '@mui/material/useMediaQuery'
@@ -64,5 +63,14 @@ const getDesignTokens = (mode: 'light' | 'dark'): ThemeOptions => ({
     borderRadius: 4,
   },
 })
+
+declare module '@mui/material/styles' {
+  interface Theme {
+    fadeShadows: ['none', string, string, string, string]
+  }
+  interface ThemeOptions {
+    fadeShadows?: ['none', string, string, string, string]
+  }
+}
 
 export default ThemeProvider

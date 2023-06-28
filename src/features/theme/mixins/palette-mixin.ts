@@ -1,4 +1,4 @@
-/// <reference path="../ThemeProvider.d.ts"/>
+/// <reference path="./palette-mixin.d.ts"/>
 import { PaletteOptions } from '@mui/material/styles/createPalette'
 import { grey, amber, teal } from '@mui/material/colors'
 

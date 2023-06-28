@@ -1,4 +1,20 @@
 import { Palette, TypographyVariantsOptions } from '@mui/material/styles'
+import { CSSProperties } from 'react'
+
+declare module '@mui/material/styles' {
+  interface TypographyVariants {
+    chip: CSSProperties
+  }
+  interface TypographyVariantsOptions {
+    chip?: CSSProperties
+  }
+}
+
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    chip: true
+  }
+}
 
 const getTypographyMixin = (palette: Palette): TypographyVariantsOptions => ({
   fontFamily: [
