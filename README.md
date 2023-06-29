@@ -201,16 +201,18 @@ interface CellFormat {
 ```
 ├── public
 ├── src
-│   ├── features // 功能資料夾，資料夾內可放置該功能的專用的檔案，
-│   │   │        // 詳見 Features 章節介紹
-│   │   ├── formik
-│   │   ├── table
-│   │   ├── swr
+│   ├── features // 資料夾內放置可跨頁面使用的功能們，並放置該功能專用的檔案
+│   │   │        // 詳見上方 Features 章節介紹
 │   │   ├── theme
+│   │   ├── form
+│   │   ├── auth
+│   │   ├── swr
+│   │   ├── table
 │   │   └── notification
 │   │
 │   ├── pages // 每個頁面都是一個資料夾，資料夾內可放置該頁面的專用的
 │   │   │     // 組件、圖片、hooks、工具函式、資料或子頁面資料夾等
+│   │   │     // 比照 Next.js 的 App Router 概念
 │   │   ├── Page1
 │   │   │   ├── index.tsx
 │   │   │   ├── ComponentForPage1.tsx
@@ -236,15 +238,16 @@ interface CellFormat {
 │   │   ├── useHook1.ts
 │   │   └── useHookN.ts
 │   │
+│   ├── configs // 各式設定檔
 │   ├── utils // 共用工具函式
 │   ├── slices // Redux Toolkit 的 slice
 │   │   ├── todoSlice.ts
 │   │   └── otherSlice.ts
 │   ┆
 │   ├── store.ts // Redux 的 store
-│   ├── App.tsx
+│   ├── App.tsx // 應用程式的根組件，並主要在此放入 providers
 │   ├── Router.tsx // Router 組件與頁面路由設定
-│   └── index.tsx
+│   └── index.tsx // 應用程式的進入點，並主要在此引入 configs
 ┆
 ├── .env.development.local // 開發環境的環境變數
 ├── tsconfig.json
