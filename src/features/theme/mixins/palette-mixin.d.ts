@@ -1,5 +1,3 @@
-import { CSSProperties } from 'react'
-
 export interface PaletteOptionType {
   light1?: string
   light2?: string
@@ -28,15 +26,6 @@ export interface GrayLayer {
 
 // 可參考 https://mui.com/material-ui/customization/palette/#palette-colors
 declare module '@mui/material/styles' {
-  // Typography
-
-  interface TypographyVariants {
-    chip: CSSProperties
-  }
-  interface TypographyVariantsOptions {
-    chip?: CSSProperties
-  }
-
   // Palette
   interface Palette {
     gray: GrayLayer
@@ -53,10 +42,4 @@ declare module '@mui/material/styles' {
 
   interface PaletteColor extends PaletteOptionType {}
   interface SimplePaletteColorOptions extends PaletteOptionType {}
-}
-
-declare module '@mui/material/Typography' {
-  interface TypographyPropsVariantOverrides {
-    chip: true
-  }
 }

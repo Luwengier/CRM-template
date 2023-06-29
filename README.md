@@ -1,7 +1,5 @@
 ## Features
 
----
-
 ### [Formik form](https://formik.org/)
 
 Formik 與各式 MUI input 結合後的組件，該組件 _props_ 的必填一定包含：
@@ -43,6 +41,23 @@ const { data, isLoading, error } = useSWR([
   { page: 3, limit: 20 },
 ])
 ```
+
+---
+
+### [Theme](https://mui.com/material-ui/customization/theming/)
+
+使用 MUI 的 ThemeProvider，預設定好主題的色彩、字型等，以統一管理樣式並大幅減少開發者需撰寫的樣式程式碼量。並運用其 **Component Style Overrides** 功能，使各組件被客製化的同時，亦維持組件在頁面開箱即用(out-of-the-box)的能力，不需要再額外定義 styled component 還要於頁面中改變引入組件的路徑。
+
+- **`組件 Style Overrides`**
+  在 _features/theme/mixins/component-mixin.ts_ 中照著[官方指示](https://mui.com/material-ui/customization/theme-components/#theme-style-overrides)，覆蓋欲修改組件的預設樣式。
+  \- - -
+
+- `擴增 Palette`
+  在 _features/theme/mixins/palette-mixin.ts_ 中加入新的色盤或色盤選項，並於 _features/theme/mixins/palette-mixin.d.ts_ 中加入該色盤的[型別定義](https://mui.com/material-ui/customization/palette/#typescript)。
+  \- - -
+
+- `擴增 Typography`
+  在 _features/theme/mixins/typography-mixin.ts_ 中加入新的字型，並加入[型別定義](https://mui.com/material-ui/customization/typography/#adding-amp-disabling-variants)。
 
 ---
 
@@ -109,7 +124,7 @@ GenericTable 組件的 _props_ 有兩個必填：
 >      // ...
 >    ]
 >    ```
->    ***
+>    \_
 
 `範例：`
 
@@ -180,3 +195,61 @@ interface CellFormat {
 ```
 
 ---
+
+## Folder Structure
+
+```
+├── public
+├── src
+│   ├── features // 資料夾內放置可跨頁面使用的功能們，並放置該功能專用的檔案
+│   │   │        // 詳見上方 Features 章節介紹
+│   │   ├── theme
+│   │   ├── form
+│   │   ├── auth
+│   │   ├── swr
+│   │   ├── table
+│   │   └── notification
+│   │
+│   ├── pages // 每個頁面都是一個資料夾，資料夾內可放置該頁面的專用的
+│   │   │     // 組件、圖片、hooks、工具函式、資料或子頁面資料夾等
+│   │   │     // 比照 Next.js 的 App Router 概念
+│   │   ├── Page1
+│   │   │   ├── index.tsx
+│   │   │   ├── ComponentForPage1.tsx
+│   │   │   ├── image-for-page1.svg
+│   │   │   └── SubPage
+│   │   │       ├── index.tsx
+│   │   │       └── subPageHook.ts
+│   │   ┆
+│   │   └── PageN
+│   │       ├── index.tsx
+│   │       ├── ComponentForPageN.tsx
+│   │       └── DATA_FOR_PAGE_N.json
+│   │
+│   ├── components // 共用組件
+│   │   ├── SharedComponent1.tsx
+│   │   ├── SharedComponentN.tsx
+│   │   ┆
+│   │   └── templates // 共用頁面外框
+│   │       ├── Template1.tsx
+│   │       └── TemplateN.tsx
+│   │
+│   ├── hooks // 自定義 hooks
+│   │   ├── useHook1.ts
+│   │   └── useHookN.ts
+│   │
+│   ├── configs // 各式設定檔
+│   ├── utils // 共用工具函式
+│   ├── slices // Redux Toolkit 的 slice
+│   │   ├── todoSlice.ts
+│   │   └── otherSlice.ts
+│   ┆
+│   ├── store.ts // Redux 的 store
+│   ├── App.tsx // 應用程式的根組件，並主要在此放入 providers
+│   ├── Router.tsx // Router 組件與頁面路由設定
+│   └── index.tsx // 應用程式的進入點，並主要在此引入 configs
+┆
+├── .env.development.local // 開發環境的環境變數
+├── tsconfig.json
+└── package.json
+```
