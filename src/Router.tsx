@@ -12,11 +12,15 @@ import NormalTemplate from 'components/templates/NormalTemplate'
 const Home = lazy(() => import('pages/Home'))
 const NestRouteDemo = lazy(() => import('pages/NestRouteDemo'))
 const PageLayout = lazy(() => import('pages/NestRouteDemo/_Layout'))
-const SubPage1 = lazy(() => import('pages/NestRouteDemo/SubPage1'))
-const SubPage2 = lazy(() => import('pages/NestRouteDemo/SubPage2'))
+const DemoPage = lazy(() => import('pages/NestRouteDemo/_Page'))
+const SubPage = lazy(() => import('pages/NestRouteDemo/SubPage'))
 
 // Icon
 const HomeRoundedIcon = lazy(() => import('@mui/icons-material/HomeRounded'))
+const SegmentIcon = lazy(() => import('@mui/icons-material/Segment'))
+const AutoAwesomeRoundedIcon = lazy(
+  () => import('@mui/icons-material/AutoAwesomeRounded')
+)
 
 const Router = () => {
   const routes = useRoutes(routeConfig)
@@ -31,33 +35,30 @@ export const routeConfig: RouteItem[] = [
     icon: <IconSuspenseWrapper component={<HomeRoundedIcon />} />,
   },
   {
-    path: '/nest-sidebar-demo',
-    name: 'NavRouteDemo',
+    // 以 Next.js App Router 的設計模式，可進入 /NestRouteDemo/index.tsx 查看
+    path: '/next-pattern/*',
+    name: 'NextPattern',
+    element: <PageSuspenseWrapper component={<NestRouteDemo />} />,
+    icon: <IconSuspenseWrapper component={<AutoAwesomeRoundedIcon />} />,
+  },
+  {
+    // 在 routeConfig 中設定路由，並在 children 中設定子路由可顯示巢狀側邊欄
+    path: '/layered-sidebar',
+    name: 'LayeredSidebar',
+    icon: <IconSuspenseWrapper component={<SegmentIcon />} />,
     element: <PageSuspenseWrapper component={<PageLayout />} />,
     children: [
       {
         path: '',
-        name: 'SubPage1',
-        element: <PageSuspenseWrapper component={<SubPage1 />} />,
-        hidden: true,
+        name: 'DemoPage',
+        element: <PageSuspenseWrapper component={<DemoPage />} />,
       },
       {
-        path: 'sub-page1',
-        name: 'SubPage1',
-        element: <PageSuspenseWrapper component={<SubPage1 />} />,
-      },
-      {
-        path: 'sub-page2',
-        name: 'SubPage2',
-        element: <PageSuspenseWrapper component={<SubPage2 />} />,
+        path: 'sub-page',
+        name: 'SubPage',
+        element: <PageSuspenseWrapper component={<SubPage />} />,
       },
     ],
-  },
-  {
-    path: '/nest-route-demo/*',
-    name: 'NestRouteDemo',
-    element: <PageSuspenseWrapper component={<NestRouteDemo />} />,
-    hidden: true,
   },
 ]
 
