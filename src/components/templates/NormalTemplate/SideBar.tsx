@@ -55,7 +55,7 @@ const SideBar: FC<SideBarProps> = ({ open, onClose, ...rest }) => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Typography variant="h6">Fog Light</Typography>
+        <Typography variant="h6">Your App</Typography>
         <IconButton onClick={onClose}>
           <CloseIcon />
         </IconButton>

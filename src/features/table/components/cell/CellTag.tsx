@@ -21,7 +21,7 @@ const CellTag = ({
       </div>
     )
   }
-  return TAG_MAPPING[params.value || params.value.type || 'none']({
+  return TAG_MAPPING[params.value?.type || params.value || 'none']({
     label: params.value.name,
     title: params.value.name,
   })

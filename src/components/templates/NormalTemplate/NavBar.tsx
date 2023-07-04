@@ -76,7 +76,7 @@ const NavBar = () => {
           <Link className="home-link" to="/">
             <FlareIcon color="secondary" />
             <Typography variant="h5" noWrap>
-              Fog Light
+              Application Template
             </Typography>
           </Link>
         </Box>

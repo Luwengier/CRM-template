@@ -250,6 +250,6 @@ interface CellFormat {
 │   └── index.tsx // 應用程式的進入點，並主要在此引入 configs
 ┆
 ├── .env.development.local // 開發環境的環境變數
-├── tsconfig.json
+├── tsconfig.json // 有額外設定 "baseUrl": "src"
 └── package.json
 ```
